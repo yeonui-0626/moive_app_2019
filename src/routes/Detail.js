@@ -1,4 +1,5 @@
 import React from "react";
+import Movies from "../components/Movies";
 
 class Detail extends React.Component{
     componentDidMount() {
@@ -11,7 +12,18 @@ class Detail extends React.Component{
     render(){
         const {location} = this.props;
         if(location.state) {
-            return <span>{location.state.title}</span>
+            return (
+                <div className="movies">
+                    <Movies
+                        year={location.state.year}
+                        summary={location.state.summary}
+                        id={location.state.id}
+                        title={location.state.title}
+                        poster={location.state.poster}
+                        genres={location.state.genres}
+                    />
+                </div>
+            )
         }else{
             return null;
         }
